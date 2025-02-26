@@ -42,11 +42,11 @@ int ft_strlen(const char *str)
 
 int ft_maxdec(const char *str, int base)
 {
-	int len = 0, i = 0, flag = 0, n = 0;
+	int len = 0, i = 0, flag = 0, n = 0, end = 0;
 	
 	len = ft_strlen(str);
 	n = 0;
-	while (i < len)
+	while (i < len && end == 0)
 	{
 		while (str[i] == ' ')
 			i++;
@@ -56,16 +56,19 @@ int ft_maxdec(const char *str, int base)
 			flag = 1;
 			i++;
 		}
-		if (str[i] >= '0' && str[i] <= (base + 48))
+		while (str[i] != '\0')
 		{
-			while (str[i] >= '0' && str[i] <= (base + 48))
+			if (str[i] >= '0' && str[i] <= (base + 48))
 			{
 				n = (n * base) + (str[i] - 48);
 				i++;
 			}
+			else
+			{
+				end = 1;
+				break;
+			}
 		}
-		else
-			return (0);
 	}
 	if (flag == 1)
 		n = n * -1;
@@ -74,10 +77,10 @@ int ft_maxdec(const char *str, int base)
 
 int ft_maxexa(const char *str, int base)
 {
-	int len = 0, i = 0, flag = 0, n = 0;
+	int len = 0, i = 0, flag = 0, n = 0, end = 0;
 	
 	len = ft_strlen(str);
-	while (i < len)
+	while (i < len && end == 0)
 	{
 		while (str[i] == ' ')
 			i++;
@@ -87,7 +90,7 @@ int ft_maxexa(const char *str, int base)
 				flag = 1;
 			i++;
 		}
-		while ((str[i] >= '0' && str[i] <= '9') || (str[i] >= 'a' && str[i] <= ((base - 10) + 96)) || (str[i] >= 'A' && str[i] <= ((base - 10) + 64)))
+		while (str[i] != '\0')
 		{
 			if ((str[i] >= '0' && str[i] <= '9') || (str[i] >= 'a' && str[i] <= ((base - 10) + 96)) || (str[i] >= 'A' && str[i] <= ((base - 10) + 64)))
 			{
@@ -95,7 +98,10 @@ int ft_maxexa(const char *str, int base)
 				i++;
 			}
 			else
+			{
+				end = 1;
 				break;
+			}
 		}
 	}
 	if (flag == 1)
@@ -118,8 +124,8 @@ int	ft_atoi_base(const char *str, int base)
 
 int main(void)
 {
-	char *str = "   -10c";
-	int base = 10;
+	char *str = "   -e10c";
+	int base = 13;
 	int n;
 
 	n = ft_atoi_base(str, base);
