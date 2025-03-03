@@ -6,11 +6,24 @@
 /*   By: bpalchet <bpalchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 19:43:10 by bpalchet          #+#    #+#             */
-/*   Updated: 2025/03/03 19:55:48 by bpalchet         ###   ########.fr       */
+/*   Updated: 2025/03/03 23:55:22 by bpalchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
+
+void	ft_putnbr(int nb)
+{
+	char c;
+	
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+	}
+	c = (nb % 10) + 48;
+	write (1, &c, 1);
+}
 
 int	ft_atoi (char *num)
 {
@@ -18,32 +31,30 @@ int	ft_atoi (char *num)
 	
 	while (num[i])
 	{
-		n = n * 10 + num[i];
-		i++;	
+		n = n * 10 + (num[i] - 48);
+		i++;
 	}
 	return (n);
 }
 
 void	ft_tab_mult (char *num)
 {
-	int n, j = 1, i = 0, prod = 0;
+	int n, j = 1, prod = 0;
 	char c;
 	
 	n = ft_atoi(num);
 	while (j <= 9)
 	{
-		c = j + 32;
+		c = j + 48;
 		write(1, &c, 1);
 		write(1, " x ", 3);
-		while (i ) // ciclo per scrivere l'argomento
-		{
-			write(1, )
-		}
+		ft_putnbr(n);
 		write(1, " = ", 3);
 		prod = j * n;
-		//ciclo per stampare prod
-	}
-		
+		ft_putnbr(prod);
+		write(1, "\n", 1);
+		j++;
+	}	
 }
 
 int main (int argc, char **argv)
