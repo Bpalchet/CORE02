@@ -6,13 +6,12 @@
 /*   By: bpalchet <bpalchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 19:02:44 by bpalchet          #+#    #+#             */
-/*   Updated: 2025/03/07 19:52:01 by bpalchet         ###   ########.fr       */
+/*   Updated: 2025/03/08 00:43:30 by bpalchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 int count_len(char *str)
 {
@@ -38,24 +37,49 @@ int count_len(char *str)
 	return (len);
 }
 
-int ft_strlen(char *str)
+void ft_print_buffer(char *buffer)
 {
-	int len = 0;
+	int i = 0, index, flag = 0;
 	
-	while (str[len] != '\0')
-	len++;
-	return (len);
+	while (buffer[i] != '\0')
+	{
+		if (buffer[i] == ' ')
+			i++;
+		while (buffer[i] != ' ')
+		{
+			if (buffer[i] == '\0')
+				break;
+			i++;
+		}
+		i++;
+		index = i;
+		while (buffer[i] != '\0')
+		{
+			if (buffer[i] == ' ' && buffer [i + 1] == '\0')
+				break ;
+			write(1, &buffer[i], 1);
+			flag = 1;
+			i++;
+		}
+		if (flag == 1)
+			write (1, " ", 1);
+		i = 0;
+		while (i < index)
+		{
+			if (buffer[i] != ' ')
+				write (1, &buffer[i], 1);
+			i++;
+		}
+		return ;
+	}
 }
 
 void ft_rostring (char *str)
 {
-	int len, len2, i = 0, j = 0, flag = 1;
+	int len2, i = 0, j = 0, flag = 1;
 	char *buffer;
 	
-	len = ft_strlen(str);
-	printf ("len pura = %d\n", len);
 	len2 = count_len(str);
-	printf ("len epurata = %d\n", len2);
 	buffer = (char *)malloc((len2 + 1) * sizeof(char));
 	while (str[i] != '\0')
 	{
@@ -77,7 +101,8 @@ void ft_rostring (char *str)
 		}
 	}
 	buffer[j] = '\0';
-	printf ("la stringa depurata = %s", buffer);
+	ft_print_buffer(buffer);
+	free(buffer);
 }
 
 int main (int argc, char **argv)
