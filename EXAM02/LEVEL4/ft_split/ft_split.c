@@ -6,42 +6,32 @@
 /*   By: bpalchet <bpalchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 19:05:25 by bpalchet          #+#    #+#             */
-/*   Updated: 2025/03/06 22:54:37 by bpalchet         ###   ########.fr       */
+/*   Updated: 2025/03/07 19:00:39 by bpalchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
-
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include <stdio.h>
-#include <stdlib.h>
 
 // Conta il numero di parole nella stringa
-int ft_count_words (char *str)
+int count_words(const char *str)
 {
-	int i = 0, flag = 0, count = 0;
-
-	while (str[i] != '\0')
-	{
-		if (str[i] == ' ' || str[i] == '\t')
-		{
-			flag = 0;
-			i++;
-		}
-		else if (flag == 0)
-		{
-			count++;
-			flag = 1;
-			i++;
-		}
-		else if (flag == 1)
-			i++;
-	}
-	return (count);
+    int count = 0, in_word = 0;
+    
+    while (*str)
+    {
+        if (*str != ' ' && !in_word)
+        {
+            in_word = 1;
+            count++;
+        }
+        else if (*str == ' ')
+            in_word = 0;
+        str++;
+    }
+    return count;
 }
 
 // Copia una parola dalla stringa originale
@@ -61,7 +51,7 @@ char *copy_word(const char *start, int length)
 // Divide la stringa in un array di parole
 char **ft_split(char *str)
 {
-    int word_count = ft_count_words(str);
+    int word_count = count_words(str);
     char **words = (char **)malloc((word_count + 1) * sizeof(char *));
     if (!words)
         return NULL;
