@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+//#include <string.h>
 
 
 // Conta il numero di parole nella stringa
@@ -82,7 +82,7 @@ char **ft_split(char *str)
 }
 
 // Libera la memoria dell'array di parole
-void free_words(char **words)
+/*void free_words(char **words)
 {
     int i = 0;
     while (words[i])
@@ -108,4 +108,4 @@ int main(void)
 
     free_words(words);
     return 0;
-}
+}*/
