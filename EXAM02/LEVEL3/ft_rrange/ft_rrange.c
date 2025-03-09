@@ -16,10 +16,10 @@
 int	array_len(int start, int end)
 {
 	int len = 0;
-	len = start - end + 1;
+	len = start - end;
 	if (len < 0)
 		len = len * -1;
-	return (len);
+	return (len + 1);
 }
 
 int	*ft_rrange(int start, int end)
