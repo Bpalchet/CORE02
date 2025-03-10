@@ -6,11 +6,12 @@
 /*   By: bpalchet <bpalchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 17:00:02 by bpalchet          #+#    #+#             */
-/*   Updated: 2025/03/09 17:33:31 by bpalchet         ###   ########.fr       */
+/*   Updated: 2025/03/10 23:25:27 by bpalchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "list.h"
+#include <stddef.h>
 //#include <stdlib.h>
 //#include <unistd.h>
 
@@ -36,7 +37,7 @@ t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
 	return (lst);
 }
 
-/*#include <unistd.h> // For write // For write
+/*#include <unistd.h> // For write
 
 void	ft_putchar(char c)
 {
