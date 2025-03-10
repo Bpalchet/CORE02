@@ -6,7 +6,7 @@
 /*   By: bpalchet <bpalchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:27:54 by bpalchet          #+#    #+#             */
-/*   Updated: 2025/01/29 00:46:42 by bpalchet         ###   ########.fr       */
+/*   Updated: 2025/03/10 19:32:17 by bpalchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strdup(char *src)
 	i = 0;
 	len = ft_strlen(src);
 	dest = (char *)malloc(len * sizeof(char));
-	if (!*src)
+	if (!src)
 		return (0);
 	while (i < len)
 	{
@@ -47,17 +47,17 @@ char	*ft_strdup(char *src)
 	return (dest);
 }
 
-// int	main(void)
-// {
+int	main(void)
+{
 
-// 	char *src = "Forza ragazzi!";
-// 	char *dest;
+	char *src = "";
+	char *dest;
 
-// 	printf(" Stringa originale = %s\n", src);
-// 	dest = ft_strdup(src);
-// 	printf(" Stringa duplicata = %s\n", dest);
-// 	dest = strdup(src);
-// 	printf(" Stringa duplicata con STRDUP = %s\n", dest);	
-// 	free(dest);
-// 	return (0);
-// }
+	printf(" Stringa originale = %s\n", src);
+	dest = ft_strdup(src);
+	printf(" Stringa duplicata = %s\n", dest);
+	dest = strdup(src);
+	printf(" Stringa duplicata con STRDUP = %s\n", dest);	
+	free(dest);
+	return (0);
+}
