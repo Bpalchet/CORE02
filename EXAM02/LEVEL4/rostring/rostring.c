@@ -6,7 +6,7 @@
 /*   By: bpalchet <bpalchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 19:02:44 by bpalchet          #+#    #+#             */
-/*   Updated: 2025/03/08 00:43:30 by bpalchet         ###   ########.fr       */
+/*   Updated: 2025/03/12 12:55:25 by bpalchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void ft_print_buffer(char *buffer)
 				break;
 			i++;
 		}
-		i++;
 		index = i;
+		i++;
 		while (buffer[i] != '\0')
 		{
 			if (buffer[i] == ' ' && buffer [i + 1] == '\0')
