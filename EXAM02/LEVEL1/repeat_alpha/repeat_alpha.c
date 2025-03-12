@@ -6,7 +6,7 @@
 /*   By: bpalchet <bpalchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:42:14 by bpalchet          #+#    #+#             */
-/*   Updated: 2025/01/25 17:42:15 by bpalchet         ###   ########.fr       */
+/*   Updated: 2025/03/12 17:05:33 by bpalchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	*repeat_alpha(char *str)
 
 int	main(int argc, char **argv)
 {
-	if (argc == 1)
+	if (argc != 2)
 		write(1, "\n", 1);
 	else
 	{
