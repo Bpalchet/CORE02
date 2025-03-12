@@ -6,7 +6,7 @@
 /*   By: bpalchet <bpalchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 19:43:10 by bpalchet          #+#    #+#             */
-/*   Updated: 2025/03/03 23:58:52 by bpalchet         ###   ########.fr       */
+/*   Updated: 2025/03/12 11:29:57 by bpalchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,5 @@ int main (int argc, char **argv)
 		return (0);
 	}
 	ft_tab_mult(argv[1]);
-	write (1, "\n", 1);
 	return (0);
 }
