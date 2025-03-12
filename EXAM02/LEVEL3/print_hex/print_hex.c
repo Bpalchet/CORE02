@@ -16,7 +16,7 @@ char	ft_hex(int c)
 {
 	char a;
 
-	if (c >= 0 && c < 9)
+	if (c >= 0 && c <= 9)
 		a = c + 48;
 	else if (c == 10)
 		a = 'a';
@@ -39,13 +39,13 @@ int ft_atoi(const char *str)
 
     while (str[i] == ' ')
         i++;
-    if (!(str[i] >= '0' && str[i] < '9') && !(str[i] == '+'))
+    if (!(str[i] >= '0' && str[i] <= '9') && !(str[i] == '+'))
         return(0);
-    if ((str[i] == '+') && !(str[i++] >= '0' && str[i++] < '9'))
+    if ((str[i] == '+') && !(str[i++] >= '0' && str[i++] <= '9'))
         return (0);
-    if ((str[i] == '+') && (str[i++] >= '0' && str[i++] < '9'))
+    if ((str[i] == '+') && (str[i++] >= '0' && str[i++] <= '9'))
         i++;
-    while (str[i] != '\0' && (str[i] >= '0' && str[i] < '9'))
+    while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
     {
         num = num * 10 + (str[i] - 48);
         i++;
