@@ -6,13 +6,20 @@
 /*   By: bpalchet <bpalchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 18:20:15 by bpalchet          #+#    #+#             */
-/*   Updated: 2025/02/27 18:47:31 by bpalchet         ###   ########.fr       */
+/*   Updated: 2025/03/12 19:04:08 by bpalchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+//#include "ft_list.h"
 // #include <stdio.h>
 // #include <stdlib.h>
+# include <stddef.h>
+
+typedef struct s_list
+{
+	struct s_list	*next;
+	void			*data;
+}	t_list;
 
 /* void free_list(t_list *head)
 {
