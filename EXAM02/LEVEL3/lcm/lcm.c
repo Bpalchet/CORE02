@@ -10,39 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-
-int ft_lcm(unsigned int a, unsigned int b)
+unsigned int lcm(unsigned int a, unsigned int b)
 {
-	unsigned int i = 1, c = 0, d;
+    unsigned int g;
 
-	if (a == 0 || b == 0)
-		return (c);
-	if (a == b)
-		return (a);
-	if (a < b)
-	{
-		d = a;
-		a = b;
-		b = d;
-	}
-	while (i <= b)
-	{
-		c = a * i;
-		if ((c % b) == 0)
-			return (c);
-		i++;
-	}
-	return (a * b);
+	if (a > b)
+		g = a;
+	else 
+		g = b;
+    if (a == 0 || b == 0)
+    	return (0);
+    while (1)
+    {
+        if ((g % a == 0) && (g % b == 0))
+            return (g);
+        g++;
+    }
 }
 
-/*int main (void)
-{
-	unsigned int num1, num2, lcm;
-	
-	num1 = 4500;
-	num2 = 0;
-	lcm = ft_lcm(num1, num2);
-	printf("Il MCM tra %d e %d e' %d\n", num1, num2, lcm);
-	return (0);
-}*/
+/*  #include <stdio.h>
+ #include <stdlib.h>
+ 
+ int main(int ac, char **av)
+ {
+ 	if (ac == 3)
+ 	{
+ 		unsigned int m = lcm(atoi(av[1]), atoi(av[2]));
+ 		printf("LCM: %u\n", m);
+ 	}
+ } */
